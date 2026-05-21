@@ -1,6 +1,7 @@
 import google.generativeai as genai
 import os
 from dotenv import load_dotenv
+import logging
 
 from tools.calculator_tool import CalculatorTool
 from tools.file_reader_tool import FileReaderTool
@@ -8,6 +9,11 @@ from tools.search_tool import SearchTool
 
 load_dotenv()
 
+logging.basicConfig(
+    filename="assistant.log",
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
 
 class StudyAssistantAgent:
     """
@@ -30,6 +36,7 @@ class StudyAssistantAgent:
     def process_request(self, user_input):
 
         user_input_lower = user_input.lower()
+        logging.info(f"User input: {user_input}")
 
         try:
 
@@ -48,6 +55,8 @@ class StudyAssistantAgent:
 
                 response = self.model.generate_content(prompt)
 
+                logging.info("Response generated successfully")
+
                 return response.text
 
             # TOOL 2: File Reader
@@ -63,6 +72,8 @@ class StudyAssistantAgent:
                 )
 
                 response = self.model.generate_content(prompt)
+
+                logging.info("Response generated successfully")
 
                 return response.text
 
@@ -81,6 +92,8 @@ class StudyAssistantAgent:
 
                 response = self.model.generate_content(prompt)
 
+                logging.info("Response generated successfully")
+
                 return response.text
 
             else:
@@ -90,4 +103,6 @@ class StudyAssistantAgent:
                 return general_response.text
 
         except Exception as e:
+            logging.error(f"Error occurred: {str(e)}")
+
             return f"Error: {str(e)}"
