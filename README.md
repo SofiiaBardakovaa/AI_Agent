@@ -28,3 +28,7 @@ Clone the repository:
 
 ```bash
 git clone <your-repository-url>
+
+Create a .env file and add your Google API key:
+
+GOOGLE_API_KEY=your_key_here
