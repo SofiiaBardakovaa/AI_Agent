@@ -1,11 +1,11 @@
 class CalculatorTool:
-    """
-    Tool for performing mathematical calculations.
-    """
 
     def calculate(self, expression):
+        """
+            Tool used for mathematical calculations.
+        """
         try:
-            result = eval(expression)
-            return result
+            return eval(expression)
+
         except Exception:
-            raise ValueError("Invalid mathematical expression.")
+            raise ValueError("Invalid expression")

@@ -1,19 +1,16 @@
 class SearchTool:
-    """
-    Simple keyword-based search tool.
-    """
 
     def __init__(self):
-        self.study_data = {
-            "python": "Python is a programming language.",
-            "ai": "Artificial Intelligence simulates human intelligence.",
-            "algorithm": "An algorithm is a step-by-step problem-solving method."
+
+        self.database = {
+            "python": "Python is a versatile programming language.",
+            "ai": "Artificial Intelligence allows machines to simulate human intelligence.",
+            "algorithm": "An algorithm is a sequence of steps used to solve a problem."
         }
 
     def search(self, keyword):
-        keyword = keyword.lower()
 
-        if keyword in self.study_data:
-            return self.study_data[keyword]
-
-        return "No information found."
+        return self.database.get(
+            keyword.lower(),
+            "No matching information found."
+        )

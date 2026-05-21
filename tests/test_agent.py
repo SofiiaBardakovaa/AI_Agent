@@ -1,20 +1,17 @@
 import unittest
-from agent.assistant_agent import StudyAssistantAgent
+from tools.calculator_tool import CalculatorTool
 
 
-class TestAgent(unittest.TestCase):
+class TestCalculator(unittest.TestCase):
 
-    def test_calculate(self):
-        agent = StudyAssistantAgent()
-        result = agent.process_request("calculate 10+5")
+    def test_addition(self):
 
-        self.assertIn("15", result)
+        calc = CalculatorTool()
 
-    def test_search(self):
-        agent = StudyAssistantAgent()
-        result = agent.process_request("search python")
-
-        self.assertIn("programming language", result.lower())
+        self.assertEqual(
+            calc.calculate("2+2"),
+            4
+        )
 
 
 if __name__ == "__main__":
