@@ -1,0 +1,5 @@
+Python supports object-oriented programming.
+
+Artificial Intelligence can use tools to solve tasks.
+
+Testing is important during software development.
