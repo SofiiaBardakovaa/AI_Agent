@@ -195,4 +195,4 @@ Possible future extensions:
 
 ## Author
 
-Developed as part of an AI Agent software engineering project.
+Developed by Sofiia Bardakova as part of a university AI Agent software engineering project.
